@@ -6,7 +6,8 @@ import com.fresh_produce.fresh_produce_api.service.ItemService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/Item")
+@CrossOrigin
+@RequestMapping("/item")
 public class ItemController {
 
     private final ItemService itemService;
@@ -21,6 +22,7 @@ public class ItemController {
         return itemService.save(newItemDTO);
     }
 
+    @CrossOrigin
     @GetMapping
     public Iterable<Item> getItem(){
         return itemService.findAll();
@@ -31,16 +33,19 @@ public class ItemController {
 //        return itemService.findByName(name);
 //    }
 
+    @CrossOrigin
     @GetMapping("/{id}")
     public Item getItemById(@PathVariable("id") Integer itemId){
         return itemService.findById(itemId);
     }
 
+    @CrossOrigin
     @PutMapping("/update/{id}")
     public Item updateItem(@RequestBody ItemDTO itemDTO, @PathVariable("id") Integer itemId){
         return itemService.update(itemDTO, itemId);
     }
 
+    @CrossOrigin
     @DeleteMapping("/{id}")
     public void deleteItem(@PathVariable("id") Integer itemId){
         itemService.delete(itemId);
