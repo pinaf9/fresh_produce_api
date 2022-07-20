@@ -24,11 +24,10 @@ public class UserController {
     public User signUp(@RequestBody UserDTO userDTO){
         return userService.save(userDTO);
     }
-//    @CrossOrigin
-//    @PostMapping("/signin")
-//    public User signIn(@RequestBody UserDTO userDTO){
-//        return userService.findById()
-//    }
+    @CrossOrigin
+    @GetMapping("/signin")
+    public User signIn(@RequestParam String email, @RequestParam String password){
+        return userService.signIn(email, password);
+    }
 
 }
-// trying to make a difference
