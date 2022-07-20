@@ -9,6 +9,9 @@ public interface UserService {
     void delete(Integer userId);
     Iterable<User> findAll();
     User findById(Integer userId);
+    User findByEmail(String email);
+
+    User signIn(String email, String password);
 }
 
 
