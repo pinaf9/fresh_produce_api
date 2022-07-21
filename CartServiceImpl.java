@@ -33,12 +33,12 @@ public class CartServiceImpl implements CartService{
 
     @Override
     public void delete(Integer id) {
-
+        cartRepository.delete(cartRepository.findById(id).get());
     }
 
     @Override
     public Iterable<Cart> findAll() {
-        return null;
+       return cartRepository.findAll();
     }
     @Override
     public Object addToCart(Integer item_id, Integer user_id, Integer quantity){

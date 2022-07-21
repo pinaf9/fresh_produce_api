@@ -6,6 +6,7 @@ import com.fresh_produce.fresh_produce_api.service.CartService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/cart")
 public class CartController {
     private final CartService cartService;
@@ -29,8 +30,8 @@ public class CartController {
 
     // delete a cart item for a user
     @CrossOrigin
-    @DeleteMapping
-    public void deleteCartItem(@RequestParam Integer cartId){
+    @DeleteMapping("/{cartId}")
+    public void deleteCartItem(@PathVariable Integer cartId){
         this.cartService.delete(cartId);
     }
 }
